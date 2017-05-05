@@ -23,7 +23,19 @@ class linux {
     content => inline_template("Created by Puppet at <%= Time.now %>\n"),
   }
 
+  file { '/var/lib/puppet/state/agent_catalog_run.lock':
+    ensure => 'absent',
+  }
+
   package { 'ntp':
+    ensure  => 'installed',
+  }
+
+  package { 'openscap-scanner':
+    ensure  => 'installed',
+  }
+
+  package { 'scap-security-guide':
     ensure  => 'installed',
   }
 
@@ -31,5 +43,6 @@ class linux {
     ensure  => 'running',
     enable  => true,
   }
+
 
 }

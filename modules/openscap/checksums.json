@@ -1,0 +1,18 @@
+{
+  "CHANGELOG": "033150cf48deb532fdc650185db55b46",
+  "LICENSE": "0e118ca5f3fa18e200a0f493ad21a18e",
+  "README.markdown": "630097f4f7ab8b9bd6595c35928dacfb",
+  "Rakefile": "f37e6131fe7de9a49b09d31596f5fbf1",
+  "files/NOTICE": "aa00d0e50b6aa131458c221c69e49f7f",
+  "manifests/config.pp": "7d22a3a91bba4ab72b4003ab8775875d",
+  "manifests/init.pp": "7fa4da6bfaaacd7db610a02658626d7c",
+  "manifests/package.pp": "c6bbf4ef5f396c67b597da4307263d2a",
+  "manifests/params.pp": "003da59355bf1adeea020710ed54b46a",
+  "manifests/service.pp": "ecb53c22aa7be1e029a1853ebe4af993",
+  "metadata.json": "4284c5ea2c7d704a1176c14006f738c0",
+  "spec/spec.opts": "a600ded995d948e393fbe2320ba8e51c",
+  "spec/spec_helper.rb": "3ea886dd135e120afa31e0aab12e85b0",
+  "templates/etc/cron.daily/oscap-scan.sh.erb": "2d182faf280a31c95ea2799ef42bd50d",
+  "templates/etc/sysconfig/oscap-scan.erb": "4f5cb0335320ad0982a8399a99cbf5b1",
+  "tests/init.pp": "088750d66c09189b185f476f91195df7"
+}

@@ -1,0 +1,32 @@
+### /etc/yum/yum.conf
+#
+# Yum configuration file
+#
+# managed by Puppet, local changes will be overwritten
+#
+[main]
+cachedir=/var/cache/yum/$basearch/$releasever
+keepcache=0
+debuglevel=2
+logfile=/var/log/yum.log
+exactarch=1
+obsoletes=1
+gpgcheck=1
+plugins=1
+installonly_limit=3
+
+# Exclude rpms from update if needed
+<%- if scope['::yum::yum_exclude'] != "unset" -%>
+exclude=<%= scope['::yum::yum_exclude'] %>
+<%- end -%>
+
+# Set proxy for internet access if needed
+<%- if scope['::yum::yum_proxy'] != "unset" -%>
+proxy=<%= scope['::yum::yum_proxy'] %>
+<%- end -%>
+<%- if scope['::yum::yum_proxy_user'] != "unset" -%>
+proxy_username=<%= scope['::yum::yum_proxy_user'] %>
+<%- end -%>
+<%- if scope['::yum::yum_proxy_password'] != "unset" -%>
+proxy_password=<%= scope['::yum::yum_proxy_password'] %>
+<%- end -%>
