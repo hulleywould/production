@@ -1,17 +1,21 @@
 #!/usr/bin/expect -f
 
-spawn ssh 172.31.0.203
+spawn ssh 172.31.0.202
 
+expect -timeout 5 "(yes/no)? " {
+	send "yes\r";
+	exp_continue
+}
 expect "password: "
 send "vagrant\r"
 expect "$ "
-send "sudo apt-get install libopenscap8\r"
+send "sudo yum -y install openscap-scanner scap-security-guide\r"
 expect "$ "
-send "git clone https://github.com/GovReady/ubuntu-scap.git\r"
+send "ls -la /usr/share/xml/scap/ssg/content/ssg-*-ds.xml\r"
 expect "$ "
-send "cd ubuntu-scap\r"
-expect "$ "
-send "./run_tests.sh\r"
-expect "$ "
-send "lynx report.html\r"
+send "oscap xccdf eval \
+ --profile xccdf_org.ssgproject.content_profile_rht-ccp \
+ --results-arf arf.xml \
+ --report report.html \
+ /usr/share/xml/scap/ssg/content/ssg-rhel6-ds.xml\r"
 expect "$ "
