@@ -1,0 +1,21 @@
+#!/usr/bin/expect -f
+
+spawn ssh 172.31.0.202
+
+expect -timeout 5 "(yes/no)? " {
+	send "yes\r";
+	exp_continue
+}
+expect "password: "
+send "vagrant\r"
+expect "$ "
+send "sudo yum -y install openscap-scanner scap-security-guide\r"
+expect "$ "
+send "ls -la /usr/share/xml/scap/ssg/content/ssg-*-ds.xml\r"
+expect "$ "
+send "oscap xccdf eval \
+ --profile xccdf_org.ssgproject.content_profile_rht-ccp \
+ --results-arf arf.xml \
+ --report report.html \
+ /usr/share/xml/scap/ssg/content/ssg-rhel6-ds.xml\r"
+expect "$ "
