@@ -49,7 +49,7 @@ void	Draw::handleEvents(int c, Spaceship *player, Bullet *bullet)
 				player->moveLeft();
 			break;
 		case 32:
-			bullet->createBullets(player->getX() + 1, player->getY());
+			bullet->createBullet(player->getX() + 1, player->getY());
 			break;
 		default:
 			break;
@@ -58,26 +58,23 @@ void	Draw::handleEvents(int c, Spaceship *player, Bullet *bullet)
 
 void	Draw::draw(Spaceship *player, Bullet *bullet)
 {
-	int	i = 0;
-
 	clear();
 	mvprintw(player->getY(), player->getX(), player->getAvatar());
-	while (i < getNumBullets())
-		mvprintw(bullet[i].getY(), bullet[i].getX(), bullet.getAvatar());
+	mvprintw(bullet->getY(), bullet->getX(), bullet->getAvatar());
 	refresh();
 }
 
 void	Draw::gameLoop()
 {
 	Spaceship	player;
-	Bullet		bullet[100];
+	Bullet		bullet;
 	draw(&player, &bullet);
 	while(true)
 	{
 		nodelay(stdscr, true);
 		c = getch();
 		handleEvents(c, &player, &bullet);
-		bullet.updateBullets();
+		bullet.moveRight();
 		draw(&player, &bullet);
 		usleep(20000);
 	}

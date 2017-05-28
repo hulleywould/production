@@ -5,7 +5,7 @@
 
 class Bullet : public Entities {
 	
-	protected:
+	private:
 		bool	hitStatus;
 		Vector	pos;
 		int	numOfBullets;
@@ -13,11 +13,11 @@ class Bullet : public Entities {
 		Bullet(void);
 		~Bullet(void);
 		Bullet(Bullet const &copy);
-		virtual int		getNumBullets(void);
-		bool		getHitStatus(void);
-		void		setNumBullets(int);
-		void		setHitStatus(bool);
-		virtual void		createBullets(int, int);
+		int	getNumBullets(void);
+		bool	getHitStatus(void);
+		void	setNumBullets(int);
+		void	setHitStatus(bool);
+		void	createBullet(int, int);
 };
 
 #endif

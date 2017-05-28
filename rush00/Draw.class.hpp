@@ -3,7 +3,7 @@
 
 #include <ncurses.h>
 #include "Spaceship.class.hpp"
-#include "BulletEvent.class.hpp"
+#include "Bullet.class.hpp"
 
 class Draw {
 	
@@ -13,7 +13,7 @@ class Draw {
 		Vector		max;
 		Vector		next;
 		Spaceship	player;
-		BulletEvent	bullet[100];
+		Bullet		bullet;
 		int		direction;
 		int		c;
 	public:

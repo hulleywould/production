@@ -2,6 +2,7 @@
 
 Bullet::Bullet(void){
 	setAvatar("-");
+	setNumBullets(20);
 }
 
 Bullet::~Bullet(void){}
@@ -16,9 +17,9 @@ bool	Bullet::getHitStatus(void)
 	return hitStatus;
 }
 
-void	Bullet::setHitStatus(bool hasHit)
+void	Bullet::setHitStatus(bool isHit)
 {
-	hitStatus = hasHit;
+	hitStatus = isHit;
 }
 
 int	Bullet::getNumBullets(void)
@@ -31,7 +32,7 @@ void	Bullet::setNumBullets(int bullets)
 	numOfBullets = bullets;
 }
 
-void	Bullet::createBullets(int x, int y)
+void	Bullet::createBullet(int x, int y)
 {
 	setX(x);
 	setY(y);
